@@ -9,20 +9,17 @@
     
     <body style='margin : 0px; overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+        <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
 
         
-            <!-- <a-assets>
-                <video id="penguin-sledding" src="ar-video.mp4"></video>
-            </a-assets> -->
+            <a-assets>
+                <video muted id="penguin-sledding" autoplay loop="true" src='ar-video.mp4' crossorigin="anonymous" playsinline webkit-playsinline ></video>
+            </a-assets>
             
 
-        <a-marker type='barcode' value='7'>
-            <a-box position='0 0.5 0' color="yellow"></a-box>
-        </a-marker>
-
-        <a-marker id="animated-marker" type='barcode' value='6'>
-            <a-video src="ar-video.mp4" width="16" height="9" position="1 1 1"></a-video>
+    
+        <a-marker  type='barcode' value='6'>
+            <a-video src="#ar-video.mp4" width="1" height="1" rotation="-90 0 0" position="0 0 0"></a-video>
         </a-marker>
 
         <a-entity camera></a-entity>
