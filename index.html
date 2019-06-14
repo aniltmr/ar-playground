@@ -8,10 +8,13 @@
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     
     <body style='margin : 0px; overflow: hidden;'>
-            <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+            <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; maxDetectionRate: 60; canvasWidth: 200; canvasHeight: 200'>
 
                 <a-assets>
-                    <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
+                    <video preload="auto" id="vid" poster="postcard.jpg" response-type="arraybuffer" loop="true" crossorigin webkit-playsinline playsinline controls>
+                        <source  src="ar-video.mp4">
+                        <img src="postcard.jpg"> Your browser does not support Or Else Please Click Reset Button.
+                    </video>
                 </a-assets>
         
                 <a-marker type='barcode' value='7'>
@@ -19,7 +22,7 @@
                 </a-marker>
         
                 <a-marker id="animated-marker" type='barcode' value='6'>
-                    <a-video src="ar-video.mp4"  position='0 0.1 0'rotation="-90 0 0" ></a-video>
+                    <a-plane position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' controls></a-plane>
                 </a-marker>
         
                 <a-entity camera></a-entity>
