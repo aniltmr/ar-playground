@@ -1,4 +1,4 @@
-<!doctype HTML>
+<!-- <!doctype HTML>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -17,6 +17,8 @@
                 smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2"
                 scale="3"
                 rotation="-90 -0 0"
+
+                
                 >
             </a-video>
         </a-marker>
@@ -24,9 +26,9 @@
         <a-entity camera></a-entity>
         </a-scene>
     </body>
-</html>
+</html> -->
 
-<!-- <!doctype HTML>
+<!doctype HTML>
 <html>
 
 <head>
@@ -82,7 +84,13 @@
             <a-plane position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' controls></a-plane>
         </a-marker>
         <a-marker id="animated-marker" type='barcode' value='6'>
-            <a-box position='0 0.5 0' color="yellow"></a-box>
+            <a-video
+                src="ar-video.mp4"
+                smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2"
+                scale="3"
+                rotation="-90 -0 0"
+            >
+            </a-video>
         </a-marker>
 
         <a-entity camera></a-entity>
@@ -104,4 +112,4 @@
 
 </body>
 
-</html> -->
+</html>
