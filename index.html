@@ -74,6 +74,12 @@
             </video>
         </a-assets>
         <a-assets>
+            <video preload="auto" id="igreet" poster="postcard.jpg" autoplay="true" response-type="arraybuffer" loop="true" crossorigin webkit-playsinline playsinline controls>
+                <source  src="ar-video.mp4">
+                <img src="postcard.jpg"> Your browser does not support Or Else Please Click Reset Button.
+            </video>
+        </a-assets>
+        <a-assets>
             <video crossOrigin="anonymous" id="cherisx" autoplay loop="true" type="video/mp4" src="ar-video.mp4">
         </a-assets>
 
@@ -81,8 +87,8 @@
             <a-plane position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' controls></a-plane>
         </a-marker>
 
-        <a-marker id="igreet" preset='custom' type="pattern" url="models/pattern-igreet-cherishx2.patt" vidhandler>
-            <a-plane position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' controls></a-plane>
+        <a-marker id="igreet" preset='custom' type="pattern" url="pattern-igreet.patt" vidhandler>
+            <a-plane position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#igreet' controls></a-plane>
         </a-marker>
 
         <!-- <a-marker id="animated-marker" type='barcode' value='6'>
