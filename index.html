@@ -83,9 +83,9 @@
         <a-marker id="memarker" preset='custom' type="pattern" url="pattern-postcard.patt" vidhandler>
             <a-plane position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' controls></a-plane>
         </a-marker>
-        <a-marker id="animated-marker" type='barcode' value='6'>
+        <a-marker type='barcode' value='6' vidhandler>
             <a-video
-                src="ar-video.mp4"
+                src="#vid"
                 smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2"
                 scale="3"
                 rotation="-90 -0 0"
