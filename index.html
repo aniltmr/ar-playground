@@ -80,7 +80,10 @@
             </video>
         </a-assets>
         <a-assets>
-            <video crossOrigin="anonymous" id="cherisx" autoplay loop="true" type="video/mp4" src="ar-video.mp4">
+            <video preload="auto" id="cherishx" poster="postcard.jpg" autoplay="true" response-type="arraybuffer" loop="true" crossorigin webkit-playsinline playsinline controls>
+                <source  src="ar-video.mp4">
+                <img src="postcard.jpg"> Your browser does not support Or Else Please Click Reset Button.
+            </video>
         </a-assets>
 
         <a-marker id="memarker" preset='custom' type="pattern" url="pattern-postcard.patt" vidhandler>
@@ -92,7 +95,7 @@
         </a-marker>
 
         <a-marker id="animated-marker" type='barcode' value='6'>
-            <a-video position='0 0.1 0' rotation="-90 0 0" src="#cherisx"  crossorigin webkit-playsinline playsinline controls></a-video>
+            <a-video position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#cherishx' ></a-video>
         </a-marker>
 
         <a-entity camera></a-entity>
