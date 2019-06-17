@@ -65,7 +65,7 @@
 
         <a-entity camera></a-entity>
     </a-scene> -->
-    <a-scene embedded artoolkit='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+    <a-scene embedded arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;" renderer="antialias: true; colorManagement: true; sortObjects: true; logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false">
 
         <a-assets>
             <video preload="auto" id="vid" poster="postcard.jpg" autoplay="true" response-type="arraybuffer" loop="true" crossorigin webkit-playsinline playsinline controls>
@@ -79,7 +79,7 @@
         </a-marker>
 
         <a-marker id="animated-marker" type='barcode' value='6'>
-            <a-plane position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' controls></a-plane>
+            <a-video position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' controls></a-video>
         </a-marker>
 
         <a-entity camera></a-entity>
