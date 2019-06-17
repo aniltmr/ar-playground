@@ -1,33 +1,3 @@
-<!-- <!doctype HTML>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    </head>
-    <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
-    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    <script src="./events.js"></script>
-
-    <body style='margin : 0px; overflow: hidden;'>
-        <a-scene markerhandler embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-
-        <a-marker id="memarker" preset='custom' type="pattern" url="pattern-postcard.patt">
-            <a-video
-                src="ar-video.mp4"
-                smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2"
-                scale="3"
-                rotation="-90 -0 0"
-
-                
-                >
-            </a-video>
-        </a-marker>
-
-        <a-entity camera></a-entity>
-        </a-scene>
-    </body>
-</html> -->
-
 <!doctype HTML>
 <html>
 
@@ -72,7 +42,7 @@
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono_and_matrix;  matrixCodeType: 3x3; '>
+    <!-- <a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono_and_matrix;  matrixCodeType: 3x3; '>
         <a-assets>
             <video preload="auto" id="vid" poster="postcard.jpg" response-type="arraybuffer" loop="true" crossorigin webkit-playsinline playsinline controls>
                 <source  src="ar-video.mp4">
@@ -85,7 +55,7 @@
         </a-marker>
         <a-marker type='barcode' value='6' vidhandler>
             <a-video
-                src="#vid"
+                src="ar-video.mp4"
                 smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2"
                 scale="3"
                 rotation="-90 -0 0"
@@ -94,7 +64,24 @@
         </a-marker>
 
         <a-entity camera></a-entity>
-    </a-scene>
+    </a-scene> -->
+    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+
+        <a-assets>
+            <video preload="auto" id="vid" poster="postcard.jpg" response-type="arraybuffer" loop="true" crossorigin webkit-playsinline playsinline controls>
+                <source  src="ar-video.mp4">
+                <img src="postcard.jpg"> Your browser does not support Or Else Please Click Reset Button.
+            </video>
+        </a-assets>
+
+       
+
+        <a-marker id="animated-marker" type='barcode' value='6'>
+            <a-plane position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' controls></a-plane>
+        </a-marker>
+
+        <a-entity camera></a-entity>
+        </a-scene>
     <div class="footer">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
