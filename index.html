@@ -80,17 +80,18 @@
             </video>
         </a-assets>
 
+        <!-- <a-assets>
+            <video preload="auto" id="vid" poster="postcard.jpg" response-type="arraybuffer" loop="true" crossorigin webkit-playsinline playsinline controls>
+                <source  src="ar-video.mp4">
+                <img src="postcard.jpg"> Your browser does not support Or Else Please Click Reset Button.
+            </video>
+        </a-assets> -->
+
         <a-marker id="memarker" preset='custom' type="pattern" url="pattern-postcard.patt" vidhandler>
             <a-plane position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' controls></a-plane>
         </a-marker>
         <a-marker id="animated-marker" type='barcode' value='6'>
-            <a-video
-                src="ar-video.mp4"
-                smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2"
-                scale="3"
-                rotation="-90 -0 0"
-            >
-            </a-video>
+            <a-plane position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' controls></a-plane>
         </a-marker>
 
         <a-entity camera></a-entity>
