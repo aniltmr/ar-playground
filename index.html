@@ -74,7 +74,7 @@
             </video>
         </a-assets>
         <a-assets>
-            <video crossOrigin="anonymous" id="cherisx" autoplay loop="true" type="video/mp4" src="ar-video.mp4" crossorigin webkit-playsinline playsinline controls>
+            <video crossOrigin="anonymous" id="cherisx" autoplay="true" loop="true" type="video/mp4" src="ar-video.mp4" crossorigin webkit-playsinline playsinline controls>
         </a-assets>
 
         <a-marker id="memarker" preset='custom' type="pattern" url="pattern-postcard.patt" vidhandler>
@@ -82,7 +82,7 @@
         </a-marker>
 
         <a-marker id="animated-marker" type='barcode' value='7'>
-            <a-video position='0 0.1 0' rotation="-90 0 0" src="#cherisx"  ></a-video>
+            <a-video position='0 0.1 0' rotation="-90 0 0" src="#cherisx"  autoplay="true"></a-video>
         </a-marker>
 
         <a-entity camera></a-entity>
