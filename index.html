@@ -42,7 +42,7 @@
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
-    <!-- <a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono_and_matrix;  matrixCodeType: 3x3; '>
+    <a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono_and_matrix;  matrixCodeType: 3x3; '>
         <a-assets>
             <video preload="auto" id="vid" poster="postcard.jpg" response-type="arraybuffer" loop="true" crossorigin webkit-playsinline playsinline controls>
                 <source  src="ar-video.mp4">
@@ -64,8 +64,8 @@
         </a-marker>
 
         <a-entity camera></a-entity>
-    </a-scene> -->
-    <a-scene embedded artoolkit="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;" renderer="antialias: true; colorManagement: true; sortObjects: true; logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false">
+    </a-scene>
+    <!-- <a-scene embedded artoolkit="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;" renderer="antialias: true; colorManagement: true; sortObjects: true; logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false">
 
         <a-assets>
             <video preload="auto" id="vid" poster="postcard.jpg" autoplay="true" response-type="arraybuffer" loop="true" crossorigin webkit-playsinline playsinline controls>
@@ -87,7 +87,7 @@
         </a-assets>
 
         <a-marker id="memarker" preset='custom' type="pattern" url="pattern-postcard.patt" vidhandler>
-            <a-plane position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' controls></a-plane>
+            <a-plane position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' play="true" controls></a-plane>
         </a-marker>
 
         <a-marker id="igreet" preset='custom' type="pattern" url="pattern-igreet.patt" vidhandler>
@@ -95,11 +95,11 @@
         </a-marker>
 
         <a-marker id="animated-marker" type='barcode' value='6'>
-            <a-video position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#cherishx' ></a-video>
+            <a-video position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#cherishx' play="true" ></a-video>
         </a-marker>
 
         <a-entity camera></a-entity>
-        </a-scene>
+        </a-scene> -->
     <div class="footer">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
