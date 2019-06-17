@@ -74,15 +74,15 @@
             </video>
         </a-assets>
         <a-assets>
-            <video  id="cherisx" autoplay="true" loop="true" type="video/mp4" src="ar-video.mp4" crossorigin webkit-playsinline playsinline controls>
+            <video  id="cherisx" autoplay="true" loop="true" type="video/mp4" src="ar-video.mp4" >
         </a-assets>
 
         <a-marker id="memarker" preset='custom' type="pattern" url="pattern-postcard.patt" vidhandler>
-            <a-plane position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' controls></a-plane>
+            <a-plane position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' crossorigin webkit-playsinline playsinline controls></a-plane>
         </a-marker>
 
         <a-marker id="animated-marker" type='barcode' value='7'>
-            <a-video position='0 0.1 0' rotation="-90 0 0" height="16" width="9" src="#cherisx"  autoplay="true"></a-video>
+            <a-video position='0 0.1 0' rotation="-90 0 0" height="1.5" width="3" src="#cherisx"  autoplay="true"></a-video>
         </a-marker>
 
         <a-entity camera></a-entity>
