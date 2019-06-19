@@ -10,8 +10,6 @@
       </head>
       <body style='margin : 0px; overflow: hidden;'>
         <video id="preview"></video>
-        
-    
         <script type="text/javascript">
         let scan_code=false
           let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror:false });
@@ -19,7 +17,7 @@
           scanner.addListener('scan', function (content) {
               if(content){
                   scanner.stop()
-                  $("#preview").remove();
+                  // $("#preview").remove();
                   $("body").append( `
                     <a-scene embedded arjs="sourceType: video; debugUIEnabled: false; patternRatio: 0.90; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
                     <a-assets>
