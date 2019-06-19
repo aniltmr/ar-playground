@@ -39,7 +39,6 @@
             
           });
           Instascan.Camera.getCameras().then(function (cameras) {
-              console.log(cameras)
               if (cameras.length > 0) {
               var selectedCam = cameras[0];
               $.each(cameras, (i, c) => {
