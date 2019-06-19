@@ -7,72 +7,67 @@
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
           <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
           <script src="./event.js"></script> 
+          <script type="text/javascript">
+            let scan_code=false
+              let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror:false });
+            //   const video = document.getElementById("preview");
+            //   const constraints = {
+            //     advanced: [{
+            //         facingMode: "environment"
+            //     }]
+            // };
+            // navigator.mediaDevices
+            //     .getUserMedia({
+            //         video: constraints
+            //     })
+            //     .then((stream) => {
+            //         video.src = window.URL.createObjectURL(stream);
+            //         video.play();
+            //     });
+              scanner.addListener('scan', function (content) {
+                  if(content){
+                      scanner.stop()
+                      $("#preview").remove();
+                      $("body").append( `
+                        <a-scene embedded arjs="sourceType: video; debugUIEnabled: false; patternRatio: 0.90; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+                        <a-assets>
+                            <video id="test-video" src="${content}" webkit-playsinline crossorigin></video>
+                            <img id="playbutton" src="https://s3.eu-west-2.amazonaws.com/ln-test-bucket/playbutton.png" crossorigin>
+                        </a-assets>
+                        <a-marker id="marker" preset="custom" type="pattern" url="pattern-postcard.patt" registerevents>
+                            <a-video clickevents id="a-video" src="#test-video" rotation="-70 0 0" width="1.6" height="0.9">
+                            <a-image src="#playbutton" material="alphaTest: 0.5" position="0 0 0.1" height="0.256" width="0.256"></a-image>
+                            </a-video>
+                        </a-marker>
+                        <a-entity camera>
+                            <a-entity cursor="fuse:false; rayOrigin: mouse"></a-entity> 
+                        </a-entity>
+                    </a-scene>`
+                    ) 
+                  }
+                 
+                
+              });
+              Instascan.Camera.getCameras().then(function (cameras) {
+                  console.log(cameras)
+                  if (cameras.length > 0) {
+                  var selectedCam = cameras[0];
+                  $.each(cameras, (i, c) => {
+                      if (c.name.indexOf('back') != -1) {
+                          selectedCam = c;
+                          return false;
+                      }
+                  });
+                  scanner.start(selectedCam);
+              } else {
+                  console.error('No cameras found.');
+              }
+              }).catch(function (e) {
+                console.error(e);
+              });
+            </script>
       </head>
       <body style='margin : 0px; overflow: hidden;'>
         <video id="preview"></video>
-        
-    
-        <script type="text/javascript">
-        let scan_code=false
-          let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror:false });
-        //   const video = document.getElementById("preview");
-        //   const constraints = {
-        //     advanced: [{
-        //         facingMode: "environment"
-        //     }]
-        // };
-        // navigator.mediaDevices
-        //     .getUserMedia({
-        //         video: constraints
-        //     })
-        //     .then((stream) => {
-        //         video.src = window.URL.createObjectURL(stream);
-        //         video.play();
-        //     });
-          scanner.addListener('scan', function (content) {
-              if(content){
-                  // scanner.stop()
-                  $("#preview").remove();
-                  $("body").append( `
-                    <a-scene embedded arjs="sourceType: video; debugUIEnabled: false; patternRatio: 0.90; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
-                    <a-assets>
-                        <video id="test-video" src="${content}" webkit-playsinline crossorigin></video>
-                        <img id="playbutton" src="https://s3.eu-west-2.amazonaws.com/ln-test-bucket/playbutton.png" crossorigin>
-                    </a-assets>
-                    <a-marker id="marker" preset="custom" type="pattern" url="pattern-postcard.patt" registerevents>
-                        <a-video clickevents id="a-video" src="#test-video" rotation="-70 0 0" width="1.6" height="0.9">
-                        <a-image src="#playbutton" material="alphaTest: 0.5" position="0 0 0.1" height="0.256" width="0.256"></a-image>
-                        </a-video>
-                    </a-marker>
-                    <a-entity camera>
-                        <a-entity cursor="fuse:false; rayOrigin: mouse"></a-entity> 
-                    </a-entity>
-                </a-scene>`
-                ) 
-              }
-             
-            
-          });
-          Instascan.Camera.getCameras().then(function (cameras) {
-              console.log(cameras)
-              if (cameras.length > 0) {
-              var selectedCam = cameras[0];
-              $.each(cameras, (i, c) => {
-                  if (c.name.indexOf('back') != -1) {
-                      selectedCam = c;
-                      return false;
-                  }
-              });
-              scanner.start(selectedCam);
-          } else {
-              console.error('No cameras found.');
-          }
-          }).catch(function (e) {
-            console.error(e);
-          });
-        </script>
-
-
-          
       </body>
   </html>
