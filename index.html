@@ -12,7 +12,7 @@
         <video id="preview"></video>
         <script type="text/javascript">
         let scan_code=false
-          let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror:false });
+          let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
        
           scanner.addListener('scan', function (content) {
               if(content){
