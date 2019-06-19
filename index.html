@@ -13,6 +13,7 @@
         
     
         <script type="text/javascript">
+        let scan_code=false
           let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror:false });
         //   const video = document.getElementById("preview");
         //   const constraints = {
@@ -30,9 +31,9 @@
         //     });
           scanner.addListener('scan', function (content) {
               if(content){
-                  scanner.stop()
+                  // scanner.stop()
                   $("body").append( `
-                    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.90; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+                    <a-scene embedded arjs="sourceType: video; debugUIEnabled: false; patternRatio: 0.90; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
                     <a-assets>
                         <video id="test-video" src="${content}" webkit-playsinline crossorigin></video>
                         <img id="playbutton" src="https://s3.eu-west-2.amazonaws.com/ln-test-bucket/playbutton.png" crossorigin>
