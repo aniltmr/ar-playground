@@ -17,7 +17,7 @@
           scanner.addListener('scan', function (content) {
               if(content){
                   scanner.stop()
-                  // $("#preview").remove();
+                  $("#preview").remove();
                   $("body").append( `
                     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.90; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
                     <a-assets>
