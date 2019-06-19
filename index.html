@@ -14,20 +14,20 @@
     
         <script type="text/javascript">
           let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror:false });
-          const video = document.getElementById("preview");
-          const constraints = {
-            advanced: [{
-                facingMode: "environment"
-            }]
-        };
-        navigator.mediaDevices
-            .getUserMedia({
-                video: constraints
-            })
-            .then((stream) => {
-                video.src = window.URL.createObjectURL(stream);
-                video.play();
-            });
+        //   const video = document.getElementById("preview");
+        //   const constraints = {
+        //     advanced: [{
+        //         facingMode: "environment"
+        //     }]
+        // };
+        // navigator.mediaDevices
+        //     .getUserMedia({
+        //         video: constraints
+        //     })
+        //     .then((stream) => {
+        //         video.src = window.URL.createObjectURL(stream);
+        //         video.play();
+        //     });
           scanner.addListener('scan', function (content) {
               if(content){
                   scanner.stop()
