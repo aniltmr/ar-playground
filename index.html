@@ -19,7 +19,7 @@
                   // scanner.stop()
                   // $("#preview").remove();
                   $("body").append( `
-                    <a-scene embedded arjs="sourceType: video; debugUIEnabled: false; patternRatio: 0.90; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+                    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.90; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
                     <a-assets>
                         <video id="test-video" src="${content}" webkit-playsinline crossorigin></video>
                         <img id="playbutton" src="https://s3.eu-west-2.amazonaws.com/ln-test-bucket/playbutton.png" crossorigin>
