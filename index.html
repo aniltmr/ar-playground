@@ -40,10 +40,13 @@
               if (cameras.length > 0) {
               var selectedCam 
               $.each(cameras, (i, c) => {
+                if(c.name){
                   if (c.name.indexOf('back') != -1) {
                       selectedCam = c;
                       return false;
                   }
+                }
+                selectedCam=c 
               });
               scanner.start(selectedCam);
           } else {
