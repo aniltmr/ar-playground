@@ -16,9 +16,8 @@
        
           scanner.addListener('scan', function (content) {
               if(content){
-               $("body").remove("#preview");
+                $("#preview").remove();
                   scanner.stop()
-                  
                   $("body").append( `
                     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.90; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
                     <a-assets>
@@ -36,12 +35,10 @@
                 </a-scene>`
                 ) 
               }
-             
-            
           });
           Instascan.Camera.getCameras().then(function (cameras) {
               if (cameras.length > 0) {
-              var selectedCam = cameras[0];
+              var selectedCam 
               $.each(cameras, (i, c) => {
                   if (c.name.indexOf('back') != -1) {
                       selectedCam = c;
