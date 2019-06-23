@@ -20,7 +20,14 @@
               if(content){
                 $("#preview").remove();
                   scanner.stop()
-                  $("body").append( `
+                  function start() {
+                
+                var constraints = {
+                  video: { facingMode: { exact: "environment" } } 
+                };
+                navigator.mediaDevices
+                  .getUserMedia(constraints).then(()=>{
+                    $("body").append( `
                     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.90; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
                     <a-assets>
                         <video id="test-video" src="${content}" webkit-playsinline crossorigin></video>
@@ -36,16 +43,7 @@
                     </a-entity>
                 </a-scene> `
                 ) 
-              }
-
-
-              function start() {
-                
-                var constraints = {
-                  video: { facingMode: { exact: "environment" } } 
-                };
-                navigator.mediaDevices
-                  .getUserMedia(constraints)
+                  })
                   .catch(handleError);
               }
 
@@ -54,6 +52,10 @@
               }
 
               start();
+              }
+
+
+             
 
           });
           Instascan.Camera.getCameras().then(function (cameras) {
