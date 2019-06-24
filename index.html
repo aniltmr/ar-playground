@@ -22,7 +22,7 @@
                     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.90; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
                     
                       <a-assets>
-                        <video preload="auto" id="vid" response-type="arraybuffer" loop="false" crossorigin webkit-playsinline playsinline controls>
+                        <video preload="auto" id="vid"  response-type="arraybuffer" loop="false" crossorigin webkit-playsinline playsinline controls>
                             <source  src="${content}">
                               <img id="playbutton" src="https://s3.eu-west-2.amazonaws.com/ln-test-bucket/playbutton.png" crossorigin>
                         </video>
@@ -30,7 +30,7 @@
                     
                     
                     <a-marker id="marker" preset="custom" type="pattern" url="pattern-postcard.patt" registerevents>
-                      <a-video  clickevents position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' controls></a-video>
+                      <a-plane  clickevents position='0 0.1 0' rotation="-90 0 0" material='transparent:true;src:#vid' controls></a-plane>
                       <a-image src="#playbutton" material="alphaTest: 0.5" position="0 0 0.1" height="0.256" width="0.256"></a-image>
                     </a-marker>
                     <a-entity camera></a-entity>
