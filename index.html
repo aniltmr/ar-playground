@@ -26,7 +26,6 @@
           scanner.addListener('scan', function (content) {
               if(content){
 				  scanner.stop()
-				//   document.querySelector('#camera2').setAttribute('camera', 'active', true);
                   $("body").append( `
                     <a-scene markerhandler embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.90; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
                     
@@ -42,7 +41,10 @@
                     <a-entity camera>
                     </a-entity>
                 </a-scene>`
-                ) 
+                ).then(()=>{
+					var secondCameraEl = document.querySelector('#second-camera');
+					secondCameraEl.setAttribute('camera', 'active', true);
+				})
               }
              
             
